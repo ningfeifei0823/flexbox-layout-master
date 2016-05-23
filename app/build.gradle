@@ -35,15 +35,33 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    productFlavors {
+        dev {
+            manifestPlaceholders = [channel: "dev"]
+        }
+        official {
+            manifestPlaceholders = [channel: "official"]
+        }
+        xiaomi {
+            manifestPlaceholders = [channel: "xiaomi"]
+        }
+        wandoujia {
+            manifestPlaceholders = [channel: "wandoujia"]
+        }
+        "360" {
+            manifestPlaceholders = [channel: "360"]
+        }
+    }
+
 }
 
 dependencies {
-    compile project(":flexbox")
+    compile project(':flexbox')
     compile "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
     compile "com.android.support:design:${rootProject.ext.supportLibVersion}"
-
     testCompile "junit:junit:${rootProject.ext.junitVersion}"
-
     androidTestCompile "com.android.support:support-annotations:${rootProject.ext.supportLibVersion}"
     androidTestCompile "com.android.support.test:runner:${rootProject.ext.testRunnerVersion}"
     androidTestCompile "com.android.support.test.espresso:espresso-core:${rootProject.ext.espressoVersion}"
